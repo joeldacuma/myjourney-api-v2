@@ -1,0 +1,20 @@
+{
+  "provider": "google-cloud-storage",
+  "providerOptions": {
+    "serviceAccount": {
+      "type": "service_account",
+      "project_id": "my-journey-tracker",
+      "private_key_id": "b2728708e392cac17295fed1ce33d71f2f86d14e",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCjgCA1vF8nuVs/\ndAQeQSHIu8oj6uSaScEZ1F8TaXHeBKIv7QWRBkUhRmTKqU18iZgdRqsiRSrZ6A9j\nBmmU0lTiEQ52f/2Wzr8kC1CrvXk+HlMdwsCelo0Oe5NQzToIVmfQxtnm9a5AkEKs\nFYE3l7XlXsHDbPnU0jRj6FU7INTsj4yLCT454SwLAbgMGkkHG3icP2OwHhkSjLtZ\nZK0lF/vmflbYrYYTdFK4VbPJPyr7uGQPf+q8obZUBdGC0OVXJYiNMze00QMkD+nN\n3Acs0TbSDZaJVeD+nbJuWOm93ciwPL81amzG1gvJlcu8UF6HD7xvjpuYD5FdEBQU\nFzxBBynvAgMBAAECggEAAK5soOk9KEZ936NOe5LEPFRRalS9h6BCI2VWHSyfSkl7\n5j6ie1Sxp9AISRAHEV3tbCnPXOwyivMrWSM9kXNjXpKrdhV/mFyrSEW8/PIDU1vx\nsdyfVouT9XIdCWYArao3YT1gTkb7AtXr0oEBTYXsg+J7EcyUDdc7mcszHqVkdfos\nKKSMYo91crht7IZfr1vL/BTH/lSNxs+C+EOPBTGQE0gf4ub6komFRAVr9gDycf0J\n5DuSHDoJuBXUIYUHpPhGNK7tB2pox3glsgf6ySPBqOZjbk3tu5d61f2to41VuppF\nZwKBXFJTM+5bRKiJXXd2bF402z670SRClSP1xrYMkQKBgQDajJb4hEsNVDBbNntw\nl6dngamCB3AlK8B9I4XzDUMGKJHClT482Qc9JIguwWVqhE0HgUJfeJiX++BSGYGj\n/9zO8c6BLI2b0SkBFJ+16TLqPfawaDyOchnUjFtNPUFBXFbrth0Q7fcQf+R2k4hd\nOF1Js4U0PW4co4nkhjwHAnXNuQKBgQC/hKLpshWxqSAnxvohN6wc+SLSDMsJjMTz\nNEkKZ/LhcW5IncaFpcFNSSHshs85A/MPxG1bbCCG/CBuUFTgqq8PzsYjekYB+Ze2\na5zii0lj514oSR50qtfg9oK1Xfqo4Lq6dRPoo26qb189tiARxX9m6QwuymiS3MR8\nudwFURLI5wKBgBAKRYJT41ZFGY94PjMTTlwQbip29UolHemRU+F01bh7/ca0QW8h\n1qAsMDqOQy1ALI8ic4aiSUDOYbZk3Nj2jHQ71xYv+Oy4uzOzGc22IeCDT7m+zML/\nqNmqu4C9wC5V4qNGKHf3nyx81n3Fcjq1SlOAc4RUBeLgNdyp5Xn2OkMxAoGAYi4f\nykgGQQ6fsmSaA/9jV3MMu7vdNmcY7EjIjPIfHB2nWMixZgBEaVdtcbDmeKciqtma\n6jwzLKACDCtYZ9h4aFUrVDKxwv9uHBFs2uJm3DVXGrXpTAvtIaGd/lZQUtTqRP4S\nF7f42py/qYY9SH8DwgEEwtP26hsNC5fISF14kM8CgYA79LevMBPZqdjz1XKYKuD4\nYdSg5HJanqvo2YPpzMpcIZPMVJafpRc9Wab6j92j1zQfoFBGPZSbVG0HCcSdTeEB\np/LwFg1HkMmu+gDKWzCBGXS9pfxKBWIehLO0J186MCyg9R0yfOKIU1mtox/ZB6ji\nWoMR2KcxH9BMN4/F0gywQA==\n-----END PRIVATE KEY-----\n",
+      "client_email": "my-journey-tracker@my-journey-tracker.iam.gserviceaccount.com",
+      "client_id": "113464097343972562655",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/my-journey-tracker%40my-journey-tracker.iam.gserviceaccount.com"
+    },
+    "bucketName": "my-journey-tracker",
+    "baseUrl": "https://storage.googleapis.com/{bucket-name}",
+    "basePath": ""
+  }
+}

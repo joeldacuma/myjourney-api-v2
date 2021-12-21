@@ -1,6 +1,8 @@
 module.exports = ({ env }) => ({
-    upload: {
-      "provider": "google-cloud-storage",
+  "upload": {
+    "enabled": true,
+    "config": {
+      "provider": "strapi-provider-upload-google-cloud-storage",
       "providerOptions": {
         "serviceAccount": {
           "type": "service_account",
@@ -14,9 +16,12 @@ module.exports = ({ env }) => ({
           "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
           "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-1k6mg%40my-journey-v2.iam.gserviceaccount.com"
         },
+        "publicFiles": true,
+        "uniform": false,
         "bucketName": "my-journey-v2.appspot.com",
-        "baseUrl": "https://storage.googleapis.com/{bucket-name}",
+        "baseUrl": "https://storage.googleapis.com/my-journey-v2.appspot.com",
         "basePath": ""
       }
     }
-  });
+  }
+});
