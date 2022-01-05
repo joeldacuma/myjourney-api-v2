@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "roomId": {
+    "mentorId": {
       "type": "string"
     },
     "data": {
@@ -30,6 +30,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::mentee.mentee"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
