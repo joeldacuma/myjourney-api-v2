@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mentees",
+  "info": {
+    "singularName": "mentee",
+    "pluralName": "mentees",
+    "displayName": "mentees",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "middleName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "contactNumber": {
+      "type": "biginteger"
+    }
+  }
+}

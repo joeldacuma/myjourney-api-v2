@@ -78,10 +78,13 @@
     "location": {
       "type": "string"
     },
-    "ProfileImages": {
-      "type": "component",
-      "repeatable": true,
-      "component": "sliders.images"
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

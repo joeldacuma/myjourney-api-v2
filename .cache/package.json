@@ -1,8 +1,8 @@
 {
-  "_from": "@strapi/admin@4.0.0",
-  "_id": "@strapi/admin@4.0.0",
+  "_from": "@strapi/admin@4.0.2",
+  "_id": "@strapi/admin@4.0.2",
   "_inBundle": false,
-  "_integrity": "sha512-uANIDowRAXpz0d7Py7xVqimc5C97QDG1ACfDgBNUjNmGwp/wq4M3gI3bkVpu5IjU9AGQ/Hu7EchLybTlkuKhXA==",
+  "_integrity": "sha512-qLw7OZw1V9PqSvRaNJZrTDvo/6Hy3neI3u1TNjnhDainaZFO7xy2jKYdlmEzOXy4aP6MiobD3B721U0yl5bdcw==",
   "_location": "/@strapi/admin",
   "_phantomChildren": {
     "at-least-node": "1.0.0",
@@ -21,7 +21,7 @@
     "object-assign": "4.1.1",
     "p-finally": "1.0.0",
     "path-to-regexp": "1.8.0",
-    "prop-types": "15.7.2",
+    "prop-types": "15.8.0",
     "react-is": "16.13.1",
     "regenerator-runtime": "0.13.9",
     "scheduler": "0.20.2",
@@ -35,20 +35,20 @@
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "@strapi/admin@4.0.0",
+    "raw": "@strapi/admin@4.0.2",
     "name": "@strapi/admin",
     "escapedName": "@strapi%2fadmin",
     "scope": "@strapi",
-    "rawSpec": "4.0.0",
+    "rawSpec": "4.0.2",
     "saveSpec": null,
-    "fetchSpec": "4.0.0"
+    "fetchSpec": "4.0.2"
   },
   "_requiredBy": [
     "/@strapi/strapi"
   ],
-  "_resolved": "https://registry.npmjs.org/@strapi/admin/-/admin-4.0.0.tgz",
-  "_shasum": "ba58a5db39b8ce1ac86dde68cd7d81741b8ca6e8",
-  "_spec": "@strapi/admin@4.0.0",
+  "_resolved": "https://registry.npmjs.org/@strapi/admin/-/admin-4.0.2.tgz",
+  "_shasum": "fb35b1787bd15ae4f9db1208d76141a28afe5a1b",
+  "_spec": "@strapi/admin@4.0.2",
   "_where": "/Users/joeldacuma/Documents/github/myjourney-api-v2/node_modules/@strapi/strapi",
   "author": {
     "name": "Strapi Solutions SAS",
@@ -76,11 +76,11 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@strapi/babel-plugin-switch-ee-ce": "4.0.0",
+    "@strapi/babel-plugin-switch-ee-ce": "4.0.2",
     "@strapi/design-system": "0.0.1-alpha.70",
-    "@strapi/helper-plugin": "4.0.0",
+    "@strapi/helper-plugin": "4.0.2",
     "@strapi/icons": "0.0.1-alpha.70",
-    "@strapi/utils": "4.0.0",
+    "@strapi/utils": "4.0.2",
     "axios": "0.24.0",
     "babel-loader": "8.2.2",
     "babel-plugin-styled-components": "1.12.0",
@@ -95,7 +95,6 @@
     "dotenv": "8.5.1",
     "execa": "^1.0.0",
     "fast-deep-equal": "3.1.3",
-    "file-loader": "6.2.0",
     "font-awesome": "^4.7.0",
     "formik": "^2.2.6",
     "fs-extra": "^9.1.0",
@@ -112,6 +111,7 @@
     "jsonwebtoken": "8.5.1",
     "koa-compose": "4.1.0",
     "koa-passport": "4.1.4",
+    "koa-static": "5.0.0",
     "lodash": "4.17.21",
     "markdown-it": "^12.0.6",
     "markdown-it-abbr": "^1.0.4",
@@ -161,10 +161,9 @@
     "style-loader": "2.0.0",
     "styled-components": "^5.2.3",
     "terser-webpack-plugin": "4.2.3",
-    "url-loader": "4.1.1",
     "webpack": "5.36.2",
-    "webpack-cli": "4.6.0",
-    "webpack-dev-server": "4.4.0",
+    "webpack-cli": "4.9.1",
+    "webpack-dev-server": "4.5.0",
     "webpackbar": "5.0.0-3",
     "yup": "^0.32.9"
   },
@@ -178,7 +177,7 @@
     "node": ">=12.x.x <=16.x.x",
     "npm": ">=6.0.0"
   },
-  "gitHead": "b181702f0202b2c6d645d42b195a831f25cd0b03",
+  "gitHead": "fd656a47698e0a33aae42abd4330410c8cba1d08",
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
@@ -197,11 +196,17 @@
   "scripts": {
     "analyze:bundle": "ANALYZE_BUNDLE=true webpack --config webpack.config.dev.js",
     "analyze:deps": "ANALYZE_DEPS=true webpack serve --config webpack.config.dev.js --progress profile",
+    "build": "rimraf build && node ./scripts/build.js",
     "create:plugin-file": "node ./scripts/create-dev-plugins-file.js",
     "develop": "yarn create:plugin-file && yarn develop:webpack",
     "develop:webpack": "cross-env NODE_ENV=development webpack serve --config webpack.config.dev.js --progress profile",
-    "prepublishOnly": "rimraf build && node ./scripts/build.js",
-    "test": "echo \"no tests yet\""
+    "prepublishOnly": "yarn build",
+    "test": "echo \"no tests yet\"",
+    "test:front": "cross-env IS_EE=true jest --config ./jest.config.front.js",
+    "test:front:ce": "cross-env IS_EE=false jest --config ./jest.config.front.js",
+    "test:front:watch": "cross-env IS_EE=true jest --config ./jest.config.front.js --watchAll",
+    "test:front:watch:ce": "cross-env IS_EE=false jest --config ./jest.config.front.js --watchAll",
+    "test:unit": "jest --verbose"
   },
-  "version": "4.0.0"
+  "version": "4.0.2"
 }

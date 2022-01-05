@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mentors_rooms",
+  "info": {
+    "singularName": "mentors-room",
+    "pluralName": "mentors-rooms",
+    "displayName": "mentors-room",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "roomId": {
+      "type": "string"
+    },
+    "data": {
+      "type": "json"
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mentees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mentee.mentee"
+    }
+  }
+}
