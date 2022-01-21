@@ -1,8 +1,8 @@
 {
-  "_from": "@strapi/admin@4.0.4",
-  "_id": "@strapi/admin@4.0.4",
+  "_from": "@strapi/admin@4.0.5",
+  "_id": "@strapi/admin@4.0.5",
   "_inBundle": false,
-  "_integrity": "sha512-Zj9aAeHm9dFqBmvU7EeuSokrxdzyK0e6KTbhbzfKQRDMT6yAXUDr3tfqs8w2hpk7PbQJSQlf1OXE4YxX0iJfWw==",
+  "_integrity": "sha512-XdNvfIdk2pnECng0v33xWKBHn3UyUq+DTjzWPYGkdsIKp3H+AEqIVXoxe4AKLqM7t2FrPPBSMH25eMx1PRXUNg==",
   "_location": "/@strapi/admin",
   "_phantomChildren": {
     "@babel/runtime": "7.16.7",
@@ -35,20 +35,20 @@
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "@strapi/admin@4.0.4",
+    "raw": "@strapi/admin@4.0.5",
     "name": "@strapi/admin",
     "escapedName": "@strapi%2fadmin",
     "scope": "@strapi",
-    "rawSpec": "4.0.4",
+    "rawSpec": "4.0.5",
     "saveSpec": null,
-    "fetchSpec": "4.0.4"
+    "fetchSpec": "4.0.5"
   },
   "_requiredBy": [
     "/@strapi/strapi"
   ],
-  "_resolved": "https://registry.npmjs.org/@strapi/admin/-/admin-4.0.4.tgz",
-  "_shasum": "10e7b2059b05253ed2ad64264019157be220c303",
-  "_spec": "@strapi/admin@4.0.4",
+  "_resolved": "https://registry.npmjs.org/@strapi/admin/-/admin-4.0.5.tgz",
+  "_shasum": "5ffa9aaebb3a4f41ad4a7bcc6afc4c2010d9a052",
+  "_spec": "@strapi/admin@4.0.5",
   "_where": "/Users/joeldacuma/Documents/github/myjourney-api-v2/node_modules/@strapi/strapi",
   "author": {
     "name": "Strapi Solutions SAS",
@@ -76,11 +76,11 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@strapi/babel-plugin-switch-ee-ce": "4.0.4",
-    "@strapi/design-system": "0.0.1-alpha.71",
-    "@strapi/helper-plugin": "4.0.4",
-    "@strapi/icons": "0.0.1-alpha.71",
-    "@strapi/utils": "4.0.4",
+    "@strapi/babel-plugin-switch-ee-ce": "4.0.5",
+    "@strapi/design-system": "0.0.1-alpha.72",
+    "@strapi/helper-plugin": "4.0.5",
+    "@strapi/icons": "0.0.1-alpha.72",
+    "@strapi/utils": "4.0.5",
     "axios": "0.24.0",
     "babel-loader": "8.2.3",
     "babel-plugin-styled-components": "2.0.2",
@@ -170,7 +170,7 @@
     "node": ">=12.22.0 <=16.x.x",
     "npm": ">=6.0.0"
   },
-  "gitHead": "d81919ac2272948b3f5d3b25a4cf8cc7b6994460",
+  "gitHead": "45020eee065af8917011cc43398f95c4c624d6ad",
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
@@ -201,5 +201,5 @@
     "test:front:watch:ce": "cross-env IS_EE=false jest --config ./jest.config.front.js --watchAll",
     "test:unit": "jest --verbose"
   },
-  "version": "4.0.4"
+  "version": "4.0.5"
 }
