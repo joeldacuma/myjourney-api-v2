@@ -7,9 +7,9 @@ module.exports = ({ env }) => ({
       database: env('DATABASE_NAME', 'journey-v2'),
       user: env('DATABASE_USERNAME', 'journey2'),
       password: env('DATABASE_PASSWORD', 'password123'),
-      ssl: {
-        rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false)
-      }
+      // ssl: {
+      //   rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false)
+      // }
     },
   },
 });

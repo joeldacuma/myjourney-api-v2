@@ -14,7 +14,7 @@ module.exports = ({ env }) => ({
   "upload": {
     "enabled": true,
     "config": {
-      "provider": "strapi-provider-upload-google-cloud-storage",
+      "provider": "@strapi-community/strapi-provider-upload-google-cloud-storage",
       "providerOptions": {
         "serviceAccount": {
           "type": "service_account",

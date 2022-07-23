@@ -6,24 +6,26 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
+    "start:develop": "env-cmd -f ./.env.development npm run develop",
     "build": "strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/helper-plugin": "4.0.5",
-    "@strapi/plugin-i18n": "4.0.5",
-    "@strapi/plugin-users-permissions": "4.0.5",
-    "@strapi/provider-email-sendgrid": "^4.0.5",
-    "@strapi/strapi": "4.0.5",
+    "@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.2.3",
+    "@strapi/helper-plugin": "4.2.3",
+    "@strapi/plugin-i18n": "4.2.3",
+    "@strapi/plugin-users-permissions": "4.2.3",
+    "@strapi/provider-email-sendgrid": "^4.2.3",
+    "@strapi/strapi": "4.2.3",
+    "env-cmd": "^10.1.0",
     "pg": "8.6.0",
     "qs": "^6.10.1",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "strapi-provider-upload-google-cloud-storage": "4.0.0"
+    "react": "17.0.0",
+    "react-dom": "17.0.0"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Joel L. Dacuma"
   },
   "strapi": {
     "uuid": "31d1cfb4-aa55-4073-922b-e5fe5fd48119"

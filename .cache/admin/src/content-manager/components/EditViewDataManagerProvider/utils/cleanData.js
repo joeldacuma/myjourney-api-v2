@@ -18,12 +18,7 @@ const cleanData = (retrievedData, currentSchema, componentsSchema) => {
 
       switch (attrType) {
         case 'json':
-          try {
-            cleanedData = JSON.parse(value);
-          } catch (err) {
-            cleanedData = value;
-          }
-
+          cleanedData = JSON.parse(value);
           break;
         // TODO
         // case 'date':
@@ -62,6 +57,7 @@ const cleanData = (retrievedData, currentSchema, componentsSchema) => {
           } else {
             cleanedData = value ? recursiveCleanData(value, componentsSchema[component]) : value;
           }
+
           break;
         case 'dynamiczone':
           cleanedData = value.map(componentData => {
