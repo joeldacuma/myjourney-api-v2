@@ -8,6 +8,7 @@
     "start": "strapi start",
     "start:develop": "env-cmd -f ./.env.development npm run develop",
     "build": "strapi build",
+    "build:develop": "env-cmd -f ./.env.development npm run build",
     "strapi": "strapi"
   },
   "devDependencies": {},
