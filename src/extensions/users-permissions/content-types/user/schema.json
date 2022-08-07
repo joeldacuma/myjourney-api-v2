@@ -10,7 +10,7 @@
   },
   "options": {
     "draftAndPublish": false,
-    "timestamps": true
+    "timestamps": false
   },
   "attributes": {
     "username": {
@@ -81,7 +81,7 @@
     "profileImage": {
       "type": "media",
       "multiple": true,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ]
