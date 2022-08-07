@@ -85,6 +85,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "organization": {
+      "type": "enumeration",
+      "enum": [
+        "yrock"
+      ]
     }
   }
 }

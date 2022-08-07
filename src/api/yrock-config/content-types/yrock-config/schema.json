@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "yrock_configs",
+  "info": {
+    "singularName": "yrock-config",
+    "pluralName": "yrock-configs",
+    "displayName": "Yrock Config",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "apis": {
+      "type": "json"
+    }
+  }
+}

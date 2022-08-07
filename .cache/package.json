@@ -1,64 +1,41 @@
 {
-  "_from": "@strapi/admin@4.2.3",
-  "_id": "@strapi/admin@4.2.3",
-  "_inBundle": false,
-  "_integrity": "sha512-F67sGW3qrmVYa2yZ+2jMA9jogBrGVBV+/xH1qOWsuQgN6injmTTenyyMjrdK0dAclxPb1ScK6y80DHIxNrVDmg==",
-  "_location": "/@strapi/admin",
-  "_phantomChildren": {
-    "@babel/helper-annotate-as-pure": "7.18.6",
-    "@babel/helper-module-imports": "7.18.6",
-    "babel-plugin-syntax-jsx": "6.18.0",
-    "follow-redirects": "1.15.1",
-    "get-stream": "4.1.0",
-    "history": "4.10.1",
-    "hoist-non-react-statics": "3.3.2",
-    "isexe": "2.0.0",
-    "lodash": "4.17.21",
-    "loose-envify": "1.4.0",
-    "lru-cache": "6.0.0",
-    "mini-create-react-context": "0.4.1",
-    "nice-try": "1.0.5",
-    "npm-run-path": "2.0.2",
-    "object-assign": "4.1.1",
-    "p-finally": "1.0.0",
-    "path-to-regexp": "1.8.0",
-    "prop-types": "15.8.1",
-    "react-is": "16.13.1",
-    "regenerator-runtime": "0.13.9",
-    "scheduler": "0.20.2",
-    "side-channel": "1.0.4",
-    "signal-exit": "3.0.7",
-    "strip-eof": "1.0.0",
-    "tiny-invariant": "1.2.0",
-    "tiny-warning": "1.0.3"
+  "name": "@strapi/admin",
+  "version": "4.3.2",
+  "description": "Strapi Admin",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/strapi/strapi.git"
   },
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "@strapi/admin@4.2.3",
-    "name": "@strapi/admin",
-    "escapedName": "@strapi%2fadmin",
-    "scope": "@strapi",
-    "rawSpec": "4.2.3",
-    "saveSpec": null,
-    "fetchSpec": "4.2.3"
-  },
-  "_requiredBy": [
-    "/@strapi/strapi"
-  ],
-  "_resolved": "https://registry.npmjs.org/@strapi/admin/-/admin-4.2.3.tgz",
-  "_shasum": "c2b2815211eecaa790838c0f9a1c1cc32947c1cc",
-  "_spec": "@strapi/admin@4.2.3",
-  "_where": "/Users/joeldacuma/Documents/github/myjourney-api-v2/node_modules/@strapi/strapi",
+  "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Strapi Solutions SAS",
     "email": "hi@strapi.io",
     "url": "https://strapi.io"
   },
-  "bugs": {
-    "url": "https://github.com/strapi/strapi/issues"
+  "maintainers": [
+    {
+      "name": "Strapi Solutions SAS",
+      "email": "hi@strapi.io",
+      "url": "https://strapi.io"
+    }
+  ],
+  "main": "index.js",
+  "scripts": {
+    "analyze:bundle": "ANALYZE_BUNDLE=true webpack --config webpack.config.dev.js",
+    "analyze:deps": "ANALYZE_DEPS=true webpack serve --config webpack.config.dev.js --progress profile",
+    "create:plugin-file": "node ./scripts/create-dev-plugins-file.js",
+    "develop": "yarn create:plugin-file && yarn develop:webpack",
+    "develop:webpack": "cross-env NODE_ENV=development webpack serve --config webpack.config.dev.js --progress profile",
+    "prepublishOnly": "yarn build",
+    "build": "rimraf build && node ./scripts/build.js",
+    "build:mesure": "rimraf build && cross-env MESURE_BUILD_SPEED=true node ./scripts/build.js",
+    "test": "echo \"no tests yet\"",
+    "test:unit": "jest --verbose",
+    "test:front": "cross-env IS_EE=true jest --config ./jest.config.front.js",
+    "test:front:watch": "cross-env IS_EE=true jest --config ./jest.config.front.js --watchAll",
+    "test:front:ce": "cross-env IS_EE=false jest --config ./jest.config.front.js",
+    "test:front:watch:ce": "cross-env IS_EE=false jest --config ./jest.config.front.js --watchAll"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "@babel/core": "7.16.7",
     "@babel/plugin-transform-runtime": "7.16.7",
@@ -74,11 +51,12 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.7",
-    "@strapi/babel-plugin-switch-ee-ce": "4.2.3",
+    "@strapi/babel-plugin-switch-ee-ce": "4.3.2",
     "@strapi/design-system": "1.2.0",
-    "@strapi/helper-plugin": "4.2.3",
+    "@strapi/helper-plugin": "4.3.2",
     "@strapi/icons": "1.2.0",
-    "@strapi/utils": "4.2.3",
+    "@strapi/typescript-utils": "4.3.2",
+    "@strapi/utils": "4.3.2",
     "axios": "0.24.0",
     "babel-loader": "8.2.5",
     "babel-plugin-styled-components": "2.0.2",
@@ -94,19 +72,20 @@
     "execa": "^1.0.0",
     "fast-deep-equal": "3.1.3",
     "font-awesome": "^4.7.0",
+    "fork-ts-checker-webpack-plugin": "7.2.1",
     "formik": "^2.2.6",
     "fs-extra": "10.0.0",
     "highlight.js": "^10.4.1",
     "history": "^4.9.0",
     "hoist-non-react-statics": "^3.3.0",
-    "html-loader": "3.0.1",
+    "html-loader": "3.1.2",
     "html-webpack-plugin": "5.5.0",
-    "immer": "9.0.6",
+    "immer": "9.0.15",
     "invariant": "^2.2.4",
     "js-cookie": "2.2.1",
     "jsonwebtoken": "8.5.1",
     "koa-compose": "4.1.0",
-    "koa-passport": "4.1.4",
+    "koa-passport": "5.0.0",
     "koa-static": "5.0.0",
     "lodash": "4.17.21",
     "markdown-it": "^12.3.2",
@@ -121,7 +100,6 @@
     "markdown-it-sup": "1.0.0",
     "match-sorter": "^4.0.2",
     "mini-css-extract-plugin": "2.4.4",
-    "moment": "^2.29.4",
     "node-polyfill-webpack-plugin": "1.1.4",
     "p-map": "4.0.0",
     "passport-local": "1.0.0",
@@ -141,15 +119,14 @@
     "react-refresh": "0.11.0",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
-    "react-select": "^4.0.2",
-    "react-virtualized": "^9.22.3",
+    "react-window": "1.8.7",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.0",
     "reselect": "^4.0.0",
     "rimraf": "3.0.2",
     "sanitize-html": "2.7.0",
     "semver": "7.3.7",
-    "sift": "13.5.0",
+    "sift": "13.5.4",
     "style-loader": "3.3.1",
     "styled-components": "5.3.3",
     "webpack": "^5.73.0",
@@ -158,28 +135,16 @@
     "webpackbar": "^5.0.2",
     "yup": "^0.32.9"
   },
-  "deprecated": false,
-  "description": "Strapi Admin",
   "devDependencies": {
     "duplicate-dependencies-webpack-plugin": "^1.0.2",
+    "glob": "8.0.3",
+    "speed-measure-webpack-plugin": "1.5.0",
     "webpack-bundle-analyzer": "^4.5.0"
   },
   "engines": {
     "node": ">=14.19.1 <=16.x.x",
     "npm": ">=6.0.0"
   },
-  "gitHead": "fe296baf71cb932d45183d5335285eaf30a6fad6",
-  "homepage": "https://github.com/strapi/strapi#readme",
-  "license": "SEE LICENSE IN LICENSE",
-  "main": "index.js",
-  "maintainers": [
-    {
-      "name": "Strapi Solutions SAS",
-      "email": "hi@strapi.io",
-      "url": "https://strapi.io"
-    }
-  ],
-  "name": "@strapi/admin",
   "nx": {
     "targets": {
       "build": {
@@ -189,24 +154,5 @@
       }
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/strapi/strapi.git"
-  },
-  "scripts": {
-    "analyze:bundle": "ANALYZE_BUNDLE=true webpack --config webpack.config.dev.js",
-    "analyze:deps": "ANALYZE_DEPS=true webpack serve --config webpack.config.dev.js --progress profile",
-    "build": "rimraf build && node ./scripts/build.js",
-    "create:plugin-file": "node ./scripts/create-dev-plugins-file.js",
-    "develop": "yarn create:plugin-file && yarn develop:webpack",
-    "develop:webpack": "cross-env NODE_ENV=development webpack serve --config webpack.config.dev.js --progress profile",
-    "prepublishOnly": "yarn build",
-    "test": "echo \"no tests yet\"",
-    "test:front": "cross-env IS_EE=true jest --config ./jest.config.front.js",
-    "test:front:ce": "cross-env IS_EE=false jest --config ./jest.config.front.js",
-    "test:front:watch": "cross-env IS_EE=true jest --config ./jest.config.front.js --watchAll",
-    "test:front:watch:ce": "cross-env IS_EE=false jest --config ./jest.config.front.js --watchAll",
-    "test:unit": "jest --verbose"
-  },
-  "version": "4.2.3"
+  "gitHead": "7039c0d22836c94457130515b3a55eb93d2411f8"
 }
