@@ -77,6 +77,8 @@ module.exports = ({ strapi }) => ({
         .count({ where: { role: { id: role.id } } });
     }
 
+    console.log('calling here...');
+
     return roles;
   },
 
