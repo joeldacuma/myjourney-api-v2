@@ -1,3 +1,6 @@
+
+const utils = require('./server/utils');
+
 module.exports = plugin => {
     const sanitizeOutput = (user) => {
       const {
@@ -52,7 +55,13 @@ module.exports = plugin => {
         if (user) {
           ctx.body = sanitizeOutput(user);
         }
-      };
+    };
+
+    plugin.controllers.role.find = async (ctx) => {
+      const roles = await strapi.query('plugin::users-permissions.role').findMany({ sort: ['name'] });
+      const newRoles = await roles.filter(role => role.type !== 'authenticated' && role.type !== 'public');
+      ctx.body = utils.removeAuthorFields(newRoles);
+    };
   
     return plugin;
   };
