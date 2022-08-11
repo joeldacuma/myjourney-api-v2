@@ -63,9 +63,9 @@ const HomePage = () => {
         {title => <Helmet title={title[0]} />}
       </FormattedMessage>
       <Main>
-        <LogoContainer>
+        {/* <LogoContainer>
           <img alt="" aria-hidden src={Logo} />
-        </LogoContainer>
+        </LogoContainer> */}
         <Box padding={10}>
           <Grid>
             <GridItem col={8} s={12}>

@@ -9,7 +9,7 @@ export default {
         "app.components.LeftMenu.navbrand.workplace": "Dashboard Panel",
         "Auth.form.welcome.title": "Welcome to My Journey!",
         "Auth.form.welcome.subtitle": "Login your Journey Admin account",
-        "HomePage.helmet.title": "Journey Dashboard"
+        "HomePage.helmet.title": "Journey Dashboard",
       }
     },
     locales: [
