@@ -6,12 +6,16 @@ const getService = name => {
 };
 
 const removeFields = (entity, fields) => {
+  let objectEntries = [];
+
   Object.entries(entity).forEach(entry => {
-    const [key, value ] = entry;
-    console.log(value);
+    const [ key, value ] = entry;
+    const sanitizedValue = _.omit(value, fields);
+    objectEntries.push(sanitizedValue);
   });
 
-  // return sanitizedValue;
+
+  return objectEntries;
 };
 
 module.exports = {

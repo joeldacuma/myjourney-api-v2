@@ -57,11 +57,12 @@ module.exports =  plugin => {
         }
     };
 
-    plugin.controllers.role.find = async (ctx) => {
-      const roles = await strapi.query('plugin::users-permissions.role').findMany({ sort: ['name'] });
-      const newRoles = await roles.filter(role => role.type !== 'authenticated' && role.type !== 'public');
-      console.log(utils.removeFields(newRoles, ['createdAt', 'updatedAt']));
-    };
+    // plugin.controllers.role.find = async (ctx) => {
+    //   const roles = await strapi.query('plugin::users-permissions.role').findMany({ sort: ['name'] });
+    //   const newRoles = await roles.filter(role => role.type !== 'authenticated' && role.type !== 'public');
+      
+    //   ctx.body = utils.removeFields(newRoles, ['createdAt', 'updatedAt']);
+    // };
     
     return plugin;
   };
