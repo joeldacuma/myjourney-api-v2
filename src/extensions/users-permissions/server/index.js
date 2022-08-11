@@ -1,6 +1,7 @@
+const contentTypes = require('./content-types');
+const services = require('./services');
 
-const contentTypes = require('../content-types');
-
-module.exports = () => ({
-  contentTypes
-});
+module.exports = {
+  contentTypes,
+  services
+};

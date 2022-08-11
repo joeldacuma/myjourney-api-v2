@@ -1,4 +1,8 @@
 module.exports = ({ env }) => ({
+  "custom-api": {
+    "enabled": true,
+    "resolve": "./node_modules/strapi-plugin-custom-api"
+  },
   "email": {
     "config": {
       "provider": 'sendgrid',

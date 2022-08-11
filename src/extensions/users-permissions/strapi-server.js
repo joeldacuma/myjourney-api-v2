@@ -1,7 +1,7 @@
 
 const utils = require('./server/utils');
 
-module.exports = plugin => {
+module.exports =  plugin => {
     const sanitizeOutput = (user) => {
       const {
         password, resetPasswordToken, confirmationToken, ...sanitizedUser
@@ -60,9 +60,9 @@ module.exports = plugin => {
     plugin.controllers.role.find = async (ctx) => {
       const roles = await strapi.query('plugin::users-permissions.role').findMany({ sort: ['name'] });
       const newRoles = await roles.filter(role => role.type !== 'authenticated' && role.type !== 'public');
-      ctx.body = utils.removeAuthorFields(newRoles);
+      console.log(utils.removeFields(newRoles, ['createdAt', 'updatedAt']));
     };
-  
+    
     return plugin;
   };
 
