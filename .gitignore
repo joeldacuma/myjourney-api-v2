@@ -1,5 +1,4 @@
 node_modules
-license.txt
 build
 .env
 .env.development
