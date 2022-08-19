@@ -10,7 +10,8 @@
     "build": "strapi build",
     "build:develop": "env-cmd -f ./.env.development npm run build",
     "strapi": "strapi",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "patch": "npx patch-package @strapi/admin @strapi/utils @strapi/plugin-users-permissions @strapi/plugin-content-manager"
   },
   "dependencies": {
     "@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.2.3",
@@ -24,8 +25,7 @@
     "pg": "8.6.0",
     "qs": "^6.10.1",
     "react": "17.0.0",
-    "react-dom": "17.0.0",
-    "strapi-plugin-email-designer": "^2.1.1"
+    "react-dom": "17.0.0"
   },
   "author": {
     "name": "Joel L. Dacuma"

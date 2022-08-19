@@ -1,6 +1,4 @@
 
-const utils = require('./server/utils');
-
 module.exports =  plugin => {
     const sanitizeOutput = (user) => {
       const {
@@ -32,7 +30,7 @@ module.exports =  plugin => {
         'plugin::users-permissions.user',
         { ...ctx.params, populate: ['profileImage'] }
       );
-  
+      
       ctx.body = users.map(user => sanitizeOutput(user));
     };
 
@@ -58,11 +56,15 @@ module.exports =  plugin => {
     };
 
     // plugin.controllers.role.find = async (ctx) => {
+    //   const admin = ctx.state.user;
     //   const roles = await strapi.query('plugin::users-permissions.role').findMany({ sort: ['name'] });
     //   const newRoles = await roles.filter(role => role.type !== 'authenticated' && role.type !== 'public');
-      
-    //   ctx.body = utils.removeFields(newRoles, ['createdAt', 'updatedAt']);
+
+    //   ctx.body = {
+    //       roles: (admin.roles[0].code !== 'strapi-super-admin') ? newRoles : roles
+    //     };
     // };
+
     
     return plugin;
   };

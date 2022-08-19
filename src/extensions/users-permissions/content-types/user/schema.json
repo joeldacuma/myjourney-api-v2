@@ -76,11 +76,22 @@
       "type": "date"
     },
     "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "organisations": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::organisation.organisation",
+      "required": true
     }
   }
 }
