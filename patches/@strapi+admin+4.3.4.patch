@@ -212,3 +212,16 @@ index 87107d4..090a1c2 100644
                  </Grid>
  
                  <Box paddingTop={1}>
+diff --git a/node_modules/@strapi/admin/index.html b/node_modules/@strapi/admin/index.html
+index a00a161..207cbce 100644
+--- a/node_modules/@strapi/admin/index.html
++++ b/node_modules/@strapi/admin/index.html
+@@ -6,7 +6,7 @@
+     <!-- Make the page mobile compatible -->
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <meta name="mobile-web-app-capable" content="yes" />
+-    <title>Strapi Admin</title>
++    <title>Journey Admin</title>
+   </head>
+   <body>
+     <!-- The app hooks into this div -->
