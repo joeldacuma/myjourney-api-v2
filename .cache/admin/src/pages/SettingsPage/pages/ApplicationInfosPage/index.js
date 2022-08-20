@@ -115,20 +115,6 @@ const ApplicationInfosPage = () => {
                       })}
                     </Typography>
                     <Typography as="p">v{strapiVersion}</Typography>
-                    <Link
-                      href={
-                        appInfos.communityEdition
-                          ? 'https://discord.strapi.io'
-                          : 'https://support.strapi.io/support/home'
-                      }
-                      isExternal
-                      endIcon={<ExternalLink />}
-                    >
-                      {formatMessage({
-                        id: 'Settings.application.get-help',
-                        defaultMessage: 'Get help',
-                      })}
-                    </Link>
                   </GridItem>
                   <GridItem col={6} s={12}>
                     <Typography variant="sigma" textColor="neutral600">
@@ -162,18 +148,6 @@ const ApplicationInfosPage = () => {
                         })}
                       </Link>
                     )}
-                  </GridItem>
-                  <GridItem col={6} s={12}>
-                    <Link
-                      href="https://strapi.io/pricing-self-hosted"
-                      isExternal
-                      endIcon={<ExternalLink />}
-                    >
-                      {formatMessage({
-                        id: 'Settings.application.link-pricing',
-                        defaultMessage: 'See all pricing plans',
-                      })}
-                    </Link>
                   </GridItem>
                 </Grid>
 

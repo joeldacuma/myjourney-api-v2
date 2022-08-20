@@ -296,7 +296,7 @@ const Register = ({ authType, fieldsToDisable, noSignin, onSubmit, schema }) => 
                             </A>
                           ),
                           policy: (
-                            <A target="_blank" href="https://strapi.io/privacy" rel="noreferrer">
+                            <A target="_blank" href="https://privacyterms.io/view/eNiBk2Zx-nwGgwG4D-PJ0nOS" rel="noreferrer">
                               {formatMessage({
                                 id: 'Auth.privacy-policy-agreement.policy',
                                 defaultMessage: 'policy',

@@ -29,7 +29,17 @@ export default {
         "app.components.HomePage.welcomeBlock.content.again": `
             Setup your organization with ease. Feel free to configure your content manager which will be visible to your 
             registered members.
-        `
+        `,
+        "Settings.profile.form.section.experience.interfaceLanguageHelp": `
+          Change preference theme for your dashboard profile.
+        `,
+        "Auth.form.register.news.label": `
+           By checking, you agree to our terms in processing your data. Learn more about our {policy}
+        `,
+        "Auth.form.register.subtitle": `
+          Credentials are used to authenticate in Journey. All data will be encrypted and stored for your personal dashboard.
+        `,
+        "Settings.application.strapiVersion": "Dashboard version"
       }
     },
     locales: [

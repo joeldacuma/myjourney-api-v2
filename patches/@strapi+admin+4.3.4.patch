@@ -1,3 +1,16 @@
+diff --git a/node_modules/@strapi/admin/admin/src/pages/AuthPage/components/Register/index.js b/node_modules/@strapi/admin/admin/src/pages/AuthPage/components/Register/index.js
+index d4717bd..c973ea1 100644
+--- a/node_modules/@strapi/admin/admin/src/pages/AuthPage/components/Register/index.js
++++ b/node_modules/@strapi/admin/admin/src/pages/AuthPage/components/Register/index.js
+@@ -296,7 +296,7 @@ const Register = ({ authType, fieldsToDisable, noSignin, onSubmit, schema }) =>
+                             </A>
+                           ),
+                           policy: (
+-                            <A target="_blank" href="https://strapi.io/privacy" rel="noreferrer">
++                            <A target="_blank" href="https://privacyterms.io/view/eNiBk2Zx-nwGgwG4D-PJ0nOS" rel="noreferrer">
+                               {formatMessage({
+                                 id: 'Auth.privacy-policy-agreement.policy',
+                                 defaultMessage: 'policy',
 diff --git a/node_modules/@strapi/admin/admin/src/pages/HomePage/HomeHeader.js b/node_modules/@strapi/admin/admin/src/pages/HomePage/HomeHeader.js
 index a846220..ba431f2 100644
 --- a/node_modules/@strapi/admin/admin/src/pages/HomePage/HomeHeader.js
@@ -72,3 +85,47 @@ index f8b8d85..c074e9c 100644
              </GridItem>
            </Grid>
          </Box>
+diff --git a/node_modules/@strapi/admin/admin/src/pages/SettingsPage/pages/ApplicationInfosPage/index.js b/node_modules/@strapi/admin/admin/src/pages/SettingsPage/pages/ApplicationInfosPage/index.js
+index 87107d4..090a1c2 100644
+--- a/node_modules/@strapi/admin/admin/src/pages/SettingsPage/pages/ApplicationInfosPage/index.js
++++ b/node_modules/@strapi/admin/admin/src/pages/SettingsPage/pages/ApplicationInfosPage/index.js
+@@ -115,20 +115,6 @@ const ApplicationInfosPage = () => {
+                       })}
+                     </Typography>
+                     <Typography as="p">v{strapiVersion}</Typography>
+-                    <Link
+-                      href={
+-                        appInfos.communityEdition
+-                          ? 'https://discord.strapi.io'
+-                          : 'https://support.strapi.io/support/home'
+-                      }
+-                      isExternal
+-                      endIcon={<ExternalLink />}
+-                    >
+-                      {formatMessage({
+-                        id: 'Settings.application.get-help',
+-                        defaultMessage: 'Get help',
+-                      })}
+-                    </Link>
+                   </GridItem>
+                   <GridItem col={6} s={12}>
+                     <Typography variant="sigma" textColor="neutral600">
+@@ -163,18 +149,6 @@ const ApplicationInfosPage = () => {
+                       </Link>
+                     )}
+                   </GridItem>
+-                  <GridItem col={6} s={12}>
+-                    <Link
+-                      href="https://strapi.io/pricing-self-hosted"
+-                      isExternal
+-                      endIcon={<ExternalLink />}
+-                    >
+-                      {formatMessage({
+-                        id: 'Settings.application.link-pricing',
+-                        defaultMessage: 'See all pricing plans',
+-                      })}
+-                    </Link>
+-                  </GridItem>
+                 </Grid>
+ 
+                 <Box paddingTop={1}>
