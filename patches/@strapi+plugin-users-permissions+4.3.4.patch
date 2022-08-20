@@ -1,3 +1,24 @@
+diff --git a/node_modules/@strapi/plugin-users-permissions/server/controllers/auth.js b/node_modules/@strapi/plugin-users-permissions/server/controllers/auth.js
+index 19c0c48..3960e50 100644
+--- a/node_modules/@strapi/plugin-users-permissions/server/controllers/auth.js
++++ b/node_modules/@strapi/plugin-users-permissions/server/controllers/auth.js
+@@ -288,10 +288,15 @@ module.exports = {
+     };
+ 
+     await validateRegisterBody(params);
++    let role;
+ 
+-    const role = await strapi
++    if (!params.organisations) {
++      role = await strapi
+       .query('plugin::users-permissions.role')
+       .findOne({ where: { type: settings.default_role } });
++    } else {
++      role = params.role;
++    }
+ 
+     if (!role) {
+       throw new ApplicationError('Impossible to find the default role');
 diff --git a/node_modules/@strapi/plugin-users-permissions/server/controllers/content-manager-user.js b/node_modules/@strapi/plugin-users-permissions/server/controllers/content-manager-user.js
 index 63a0315..96806c2 100644
 --- a/node_modules/@strapi/plugin-users-permissions/server/controllers/content-manager-user.js
