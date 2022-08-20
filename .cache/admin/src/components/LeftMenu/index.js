@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -53,6 +53,7 @@ const LinkUser = styled(RouterNavLink)`
 const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
   const buttonRef = useRef();
   const [userLinksVisible, setUserLinksVisible] = useState(false);
+  const [pluginSection, setPluginSection] = useState(pluginsSectionLinks);
   const {
     logos: { menu },
   } = useConfigurations();
@@ -71,6 +72,7 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
   const handleLogout = () => {
     auth.clearAppStorage();
     handleToggleUserLinks();
+    localStorage.removeItem('USER_IS_SUPER_ADMIN');
   };
 
   const handleBlur = e => {
@@ -86,6 +88,16 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
     id: 'app.components.LeftMenu.navbrand.title',
     defaultMessage: 'Strapi Dashboard',
   });
+
+  useEffect(() => {;
+    const userIsSuperAdmin = localStorage.getItem('USER_IS_SUPER_ADMIN');
+    
+    if (!userIsSuperAdmin) {
+      const _pluginsSectionLinks = pluginSection.filter(section => section.intlLabel.defaultMessage !== 'email-designer');
+      setPluginSection(_pluginsSectionLinks);
+    }
+
+  }, [pluginSection, setPluginSection]);
 
   return (
     <MainNav condensed={condensed}>
@@ -114,16 +126,15 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
           {formatMessage({ id: 'global.content-manager', defaultMessage: 'Content manager' })}
         </NavLink>
 
-        {pluginsSectionLinks.length > 0 ? (
+        {pluginSection.length > 0 ? (
           <NavSection
             label={formatMessage({
               id: 'app.components.LeftMenu.plugins',
               defaultMessage: 'Plugins',
             })}
           >
-            {pluginsSectionLinks.map(link => {
+            {pluginSection.map(link => {
               const Icon = link.icon;
-
               return (
                 <NavLink as={RouterNavLink} to={link.to} key={link.to} icon={<Icon />}>
                   {formatMessage(link.intlLabel)}

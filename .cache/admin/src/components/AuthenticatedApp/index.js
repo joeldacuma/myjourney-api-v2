@@ -63,9 +63,10 @@ const AuthenticatedApp = () => {
   useEffect(() => {
     if (userRoles) {
       const isUserSuperAdmin = userRoles.find(({ code }) => code === 'strapi-super-admin');
-
+      
       if (isUserSuperAdmin) {
         setGuidedTourVisibilityRef.current(true);
+        localStorage.setItem('USER_IS_SUPER_ADMIN', true);
       }
     }
   }, [userRoles]);
@@ -93,7 +94,7 @@ const AuthenticatedApp = () => {
         latestStrapiReleaseTag: tag_name,
         setUserDisplayName,
         shouldUpdateStrapi,
-        userDisplayName,
+        userDisplayName
       }}
     >
       <RBACProvider permissions={permissions} refetchPermissions={refetch}>
