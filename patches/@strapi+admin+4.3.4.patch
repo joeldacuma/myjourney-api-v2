@@ -225,3 +225,30 @@ index a00a161..207cbce 100644
    </head>
    <body>
      <!-- The app hooks into this div -->
+diff --git a/node_modules/@strapi/admin/server/services/auth.js b/node_modules/@strapi/admin/server/services/auth.js
+index b052f3d..05cb27f 100644
+--- a/node_modules/@strapi/admin/server/services/auth.js
++++ b/node_modules/@strapi/admin/server/services/auth.js
+@@ -67,15 +67,18 @@ const forgotPassword = async ({ email } = {}) => {
+     strapi.config
+   )}/auth/reset-password?code=${resetPasswordToken}`;
+   return strapi
+-    .plugin('email')
++    .plugin('email-designer')
+     .service('email')
+     .sendTemplatedEmail(
+       {
+         to: user.email,
+-        from: strapi.config.get('admin.forgotPassword.from'),
+-        replyTo: strapi.config.get('admin.forgotPassword.replyTo'),
++        from: 'admin@myjourneytracker.com',
++        replyTo: 'admin@myjourneytracker.com',
++      },
++      // strapi.config.get('admin.forgotPassword.emailTemplate'),
++      {
++        templateReferenceId: 1
+       },
+-      strapi.config.get('admin.forgotPassword.emailTemplate'),
+       {
+         url,
+         user: _.pick(user, ['email', 'firstname', 'lastname', 'username']),
