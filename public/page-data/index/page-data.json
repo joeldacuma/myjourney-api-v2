@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-index-jsx",
+    "path": "/",
+    "result": {"pageContext":{"breadcrumb":{"location":"/","crumbs":[{"pathname":"/","crumbLabel":"Home"}]}}},
+    "staticQueryHashes": ["1436272505","1817793041","2080230255","2249862579","2744905544","283643578","3672593236","394084268","469050083"]}
