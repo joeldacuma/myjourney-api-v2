@@ -18,7 +18,12 @@ module.exports = [
     },
   },
   'strapi::cors',
-  'strapi::poweredBy',
+  {
+    name: 'strapi::poweredBy',
+    config: {
+      poweredBy: 'My Journey Limited'
+    }
+  },
   'strapi::logger',
   'strapi::query',
   'strapi::body',
