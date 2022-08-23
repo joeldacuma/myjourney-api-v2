@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_navigation_menus",
+  "info": {
+    "displayName": "menu",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
