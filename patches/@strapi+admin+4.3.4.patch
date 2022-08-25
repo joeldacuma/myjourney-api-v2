@@ -1,9 +1,9 @@
 diff --git a/node_modules/@strapi/admin/admin/src/components/AuthenticatedApp/index.js b/node_modules/@strapi/admin/admin/src/components/AuthenticatedApp/index.js
-index bbe6da4..079df41 100644
+index bbe6da4..40a0631 100644
 --- a/node_modules/@strapi/admin/admin/src/components/AuthenticatedApp/index.js
 +++ b/node_modules/@strapi/admin/admin/src/components/AuthenticatedApp/index.js
 @@ -66,6 +66,7 @@ const AuthenticatedApp = () => {
-       
+ 
        if (isUserSuperAdmin) {
          setGuidedTourVisibilityRef.current(true);
 +        localStorage.setItem('USER_IS_SUPER_ADMIN', true);

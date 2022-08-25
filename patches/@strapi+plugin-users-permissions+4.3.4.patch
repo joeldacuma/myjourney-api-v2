@@ -32,7 +32,7 @@ index 63a0315..96806c2 100644
        throw new ApplicationError(error.message);
      }
 diff --git a/node_modules/@strapi/plugin-users-permissions/server/controllers/role.js b/node_modules/@strapi/plugin-users-permissions/server/controllers/role.js
-index a31c86f..42532e0 100644
+index a31c86f..387a999 100644
 --- a/node_modules/@strapi/plugin-users-permissions/server/controllers/role.js
 +++ b/node_modules/@strapi/plugin-users-permissions/server/controllers/role.js
 @@ -34,9 +34,11 @@ module.exports = {
@@ -42,7 +42,7 @@ index a31c86f..42532e0 100644
 +    const userState = ctx.state.user;
      const roles = await getService('role').find();
 +    const newRoles = await roles.filter(role => role.type !== 'authenticated' && role.type !== 'public');
-     
+ 
 -    ctx.send({ roles });
 +    ctx.send({ roles: (userState?.roles[0]?.code === 'strapi-super-admin') ? roles : newRoles });
    },
