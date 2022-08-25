@@ -4,7 +4,8 @@
   "info": {
     "singularName": "my-journey-tracker-website",
     "pluralName": "my-journey-tracker-websites",
-    "displayName": "My Journey Tracker Website"
+    "displayName": "My Journey Tracker Website",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,21 @@
       "type": "component",
       "repeatable": true,
       "component": "navigation.menu"
+    },
+    "sliderBackground": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "sliderImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
