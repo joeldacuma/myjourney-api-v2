@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sliders_slider_contents",
+  "info": {
+    "displayName": "Slider content",
+    "icon": "chart-area",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subTitle": {
+      "type": "string"
+    }
+  }
+}

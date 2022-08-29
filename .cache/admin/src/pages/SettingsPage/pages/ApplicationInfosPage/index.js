@@ -21,7 +21,7 @@ import ExternalLink from '@strapi/icons/ExternalLink';
 import Check from '@strapi/icons/Check';
 import { useConfigurations } from '../../../../hooks';
 import Form from './components/Form';
-import { fetchProjectSettings, postProjectSettings } from './utils/api';
+import { fetchProjectSettings, postProjectSettings, fetchUserRoles } from './utils/api';
 import getFormData from './utils/getFormData';
 
 const permissions = [{ action: 'admin::project-settings.update', subject: null }];
@@ -38,6 +38,7 @@ const ApplicationInfosPage = () => {
   const { updateProjectSettings } = useConfigurations();
 
   const { data } = useQuery('project-settings', fetchProjectSettings);
+  const userRoles = useQuery('user-roles', fetchUserRoles); 
 
   const currentPlan = appInfos.communityEdition
     ? 'app.components.UpgradePlanModal.text-ce'
@@ -136,7 +137,7 @@ const ApplicationInfosPage = () => {
 
                 <Grid paddingTop={1}>
                   <GridItem col={6} s={12}>
-                    {shouldUpdateStrapi && (
+                    {(shouldUpdateStrapi && userRoles.data[0].code === 'strapi-super-admin')  && (
                       <Link
                         href={`https://github.com/strapi/strapi/releases/tag/${latestStrapiReleaseTag}`}
                         isExternal

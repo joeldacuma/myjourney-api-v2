@@ -25,12 +25,10 @@
         "images"
       ]
     },
-    "sliderImage": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true
+    "sliderContent": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sliders.slider-content"
     }
   }
 }
