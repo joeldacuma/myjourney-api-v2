@@ -29,6 +29,16 @@
       "type": "component",
       "repeatable": true,
       "component": "sliders.slider-content"
+    },
+    "customerSectionTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20
+    },
+    "customers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sliders.slider-content"
     }
   }
 }
