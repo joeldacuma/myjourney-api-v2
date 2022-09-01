@@ -13,19 +13,4 @@ const postProjectSettings = async body => {
   return prefixAllUrls(data);
 };
 
-const fetchUserRoles = async () => {
-  try {
-    const {
-      data: {
-        data: { roles },
-      },
-    } = await axiosInstance.get('/admin/users/me');
-
-    return roles;
-  } catch (err) {
-    throw new Error(err);
-  }
-};
-
-
-export { fetchProjectSettings, postProjectSettings, fetchUserRoles };
+export { fetchProjectSettings, postProjectSettings };
