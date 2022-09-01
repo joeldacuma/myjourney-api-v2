@@ -38,7 +38,6 @@ const ApplicationInfosPage = () => {
   const { updateProjectSettings } = useConfigurations();
 
   const { data } = useQuery('project-settings', fetchProjectSettings);
-  const userRoles = useQuery('user-roles', fetchUserRoles); 
 
   const currentPlan = appInfos.communityEdition
     ? 'app.components.UpgradePlanModal.text-ce'
@@ -137,7 +136,7 @@ const ApplicationInfosPage = () => {
 
                 <Grid paddingTop={1}>
                   <GridItem col={6} s={12}>
-                    {(shouldUpdateStrapi && userRoles.data[0].code === 'strapi-super-admin')  && (
+                    {shouldUpdateStrapi && (
                       <Link
                         href={`https://github.com/strapi/strapi/releases/tag/${latestStrapiReleaseTag}`}
                         isExternal
