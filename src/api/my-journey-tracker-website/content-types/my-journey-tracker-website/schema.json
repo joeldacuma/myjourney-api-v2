@@ -39,6 +39,11 @@
       "type": "component",
       "repeatable": true,
       "component": "sliders.slider-content"
+    },
+    "newsletter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "newsletter.section"
     }
   }
 }

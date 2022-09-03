@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_newsletter_sections",
+  "info": {
+    "displayName": "section",
+    "icon": "grip-lines"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
