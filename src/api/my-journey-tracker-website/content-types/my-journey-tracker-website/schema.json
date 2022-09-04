@@ -52,6 +52,16 @@
     },
     "partnerSectionTitle": {
       "type": "string"
+    },
+    "register": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.register"
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "footer.home-footer"
     }
   }
 }

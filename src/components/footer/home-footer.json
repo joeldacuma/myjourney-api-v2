@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_footer_home_footers",
+  "info": {
+    "displayName": "home-footer",
+    "icon": "book-open",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
