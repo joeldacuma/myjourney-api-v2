@@ -44,6 +44,14 @@
       "type": "component",
       "repeatable": false,
       "component": "newsletter.section"
+    },
+    "partners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "newsletter.partners"
+    },
+    "partnerSectionTitle": {
+      "type": "string"
     }
   }
 }
