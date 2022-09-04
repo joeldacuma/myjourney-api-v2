@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_newsletter_partners",
+  "info": {
+    "displayName": "partners",
+    "icon": "glass-martini"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}
