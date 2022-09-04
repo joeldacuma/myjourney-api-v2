@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_content_registers",
+  "info": {
+    "displayName": "register",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
