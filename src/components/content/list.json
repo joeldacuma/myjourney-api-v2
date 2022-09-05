@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_lists",
+  "info": {
+    "displayName": "List",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}
