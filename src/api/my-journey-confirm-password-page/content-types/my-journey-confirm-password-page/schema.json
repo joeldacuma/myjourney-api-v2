@@ -4,7 +4,8 @@
   "info": {
     "singularName": "my-journey-confirm-password-page",
     "pluralName": "my-journey-confirm-password-pages",
-    "displayName": "My Journey Confirm Password Page"
+    "displayName": "My Journey Confirm Password Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +16,16 @@
       "type": "component",
       "repeatable": true,
       "component": "content.list"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "headerText": {
+      "type": "text"
     }
   }
 }
