@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "my_journey_confirm_password_pages",
+  "info": {
+    "singularName": "my-journey-confirm-password-page",
+    "pluralName": "my-journey-confirm-password-pages",
+    "displayName": "My Journey Confirm Password Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Infos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.list"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "headerText": {
+      "type": "text"
+    }
+  }
+}
