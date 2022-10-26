@@ -21,7 +21,7 @@ import ExternalLink from '@strapi/icons/ExternalLink';
 import Check from '@strapi/icons/Check';
 import { useConfigurations } from '../../../../hooks';
 import Form from './components/Form';
-import { fetchProjectSettings, postProjectSettings, fetchUserRoles } from './utils/api';
+import { fetchProjectSettings, postProjectSettings } from './utils/api';
 import getFormData from './utils/getFormData';
 
 const permissions = [{ action: 'admin::project-settings.update', subject: null }];
