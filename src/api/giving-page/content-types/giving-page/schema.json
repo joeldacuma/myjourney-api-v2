@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "giving_pages",
+  "info": {
+    "singularName": "giving-page",
+    "pluralName": "giving-pages",
+    "displayName": "Yrock Giving Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "payments.giving"
+    }
+  }
+}

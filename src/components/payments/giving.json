@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_payments_givings",
+  "info": {
+    "displayName": "Giving",
+    "icon": "won-sign",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "paymentName": {
+      "type": "string"
+    },
+    "accountNumber": {
+      "type": "string"
+    },
+    "accountName": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "QR": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
