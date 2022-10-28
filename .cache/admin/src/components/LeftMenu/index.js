@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -53,7 +53,6 @@ const LinkUser = styled(RouterNavLink)`
 const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
   const buttonRef = useRef();
   const [userLinksVisible, setUserLinksVisible] = useState(false);
-  const [pluginSection, setPluginSection] = useState(pluginsSectionLinks);
   const {
     logos: { menu },
   } = useConfigurations();
@@ -63,19 +62,18 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
 
   const initials = userDisplayName
     .split(' ')
-    .map(name => name.substring(0, 1))
+    .map((name) => name.substring(0, 1))
     .join('')
     .substring(0, 2);
 
-  const handleToggleUserLinks = () => setUserLinksVisible(prev => !prev);
+  const handleToggleUserLinks = () => setUserLinksVisible((prev) => !prev);
 
   const handleLogout = () => {
     auth.clearAppStorage();
     handleToggleUserLinks();
-    localStorage.removeItem('USER_IS_SUPER_ADMIN');
   };
 
-  const handleBlur = e => {
+  const handleBlur = (e) => {
     if (
       !e.currentTarget.contains(e.relatedTarget) &&
       e.relatedTarget?.parentElement?.id !== 'main-nav-user-button'
@@ -88,16 +86,6 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
     id: 'app.components.LeftMenu.navbrand.title',
     defaultMessage: 'Strapi Dashboard',
   });
-
-  useEffect(() => {;
-    const userIsSuperAdmin = localStorage.getItem('USER_IS_SUPER_ADMIN');
-    
-    if (!userIsSuperAdmin) {
-      const _pluginsSectionLinks = pluginSection.filter(section => section.intlLabel.defaultMessage !== 'email-designer');
-      setPluginSection(_pluginsSectionLinks);
-    }
-
-  }, [pluginSection, setPluginSection]);
 
   return (
     <MainNav condensed={condensed}>
@@ -126,15 +114,16 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
           {formatMessage({ id: 'global.content-manager', defaultMessage: 'Content manager' })}
         </NavLink>
 
-        {pluginSection.length > 0 ? (
+        {pluginsSectionLinks.length > 0 ? (
           <NavSection
             label={formatMessage({
               id: 'app.components.LeftMenu.plugins',
               defaultMessage: 'Plugins',
             })}
           >
-            {pluginSection.map(link => {
+            {pluginsSectionLinks.map((link) => {
               const Icon = link.icon;
+
               return (
                 <NavLink as={RouterNavLink} to={link.to} key={link.to} icon={<Icon />}>
                   {formatMessage(link.intlLabel)}
@@ -151,7 +140,7 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
               defaultMessage: 'General',
             })}
           >
-            {generalSectionLinks.map(link => {
+            {generalSectionLinks.map((link) => {
               const LinkIcon = link.icon;
 
               return (
@@ -212,7 +201,7 @@ const LeftMenu = ({ generalSectionLinks, pluginsSectionLinks }) => {
         </LinkUserWrapper>
       )}
 
-      <NavCondense onClick={() => setCondensed(s => !s)}>
+      <NavCondense onClick={() => setCondensed((s) => !s)}>
         {condensed
           ? formatMessage({
               id: 'app.components.LeftMenu.expand',

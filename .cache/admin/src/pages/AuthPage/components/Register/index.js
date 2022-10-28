@@ -205,9 +205,9 @@ const Register = ({ authType, fieldsToDisable, noSignin, onSubmit, schema }) => 
                       endAction={
                         // eslint-disable-next-line react/jsx-wrap-multilines
                         <FieldActionWrapper
-                          onClick={e => {
+                          onClick={(e) => {
                             e.preventDefault();
-                            setPasswordShown(prev => !prev);
+                            setPasswordShown((prev) => !prev);
                           }}
                           label={formatMessage(
                             passwordShown
@@ -246,9 +246,9 @@ const Register = ({ authType, fieldsToDisable, noSignin, onSubmit, schema }) => 
                       endAction={
                         // eslint-disable-next-line react/jsx-wrap-multilines
                         <FieldActionWrapper
-                          onClick={e => {
+                          onClick={(e) => {
                             e.preventDefault();
-                            setConfirmPasswordShown(prev => !prev);
+                            setConfirmPasswordShown((prev) => !prev);
                           }}
                           label={formatMessage(
                             confirmPasswordShown
@@ -273,7 +273,7 @@ const Register = ({ authType, fieldsToDisable, noSignin, onSubmit, schema }) => 
                       type={confirmPasswordShown ? 'text' : 'password'}
                     />
                     <Checkbox
-                      onValueChange={checked => {
+                      onValueChange={(checked) => {
                         handleChange({ target: { value: checked, name: 'news' } });
                       }}
                       value={values.news}
@@ -296,7 +296,7 @@ const Register = ({ authType, fieldsToDisable, noSignin, onSubmit, schema }) => 
                             </A>
                           ),
                           policy: (
-                            <A target="_blank" href="https://privacyterms.io/view/eNiBk2Zx-nwGgwG4D-PJ0nOS" rel="noreferrer">
+                            <A target="_blank" href="https://strapi.io/privacy" rel="noreferrer">
                               {formatMessage({
                                 id: 'Auth.privacy-policy-agreement.policy',
                                 defaultMessage: 'policy',
@@ -338,7 +338,7 @@ const Register = ({ authType, fieldsToDisable, noSignin, onSubmit, schema }) => 
 Register.defaultProps = {
   fieldsToDisable: [],
   noSignin: false,
-  onSubmit: e => e.preventDefault(),
+  onSubmit: (e) => e.preventDefault(),
 };
 
 Register.propTypes = {

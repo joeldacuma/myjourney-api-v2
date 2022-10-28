@@ -50,7 +50,7 @@ const MarketPlacePage = () => {
   const toggleNotification = useNotification();
   const [searchQuery, setSearchQuery] = useState('');
   const [npmPackageType, setNpmPackageType] = useState('plugin');
-  const { autoReload: isInDevelopmentMode, dependencies, useYarn } = useAppInfos();
+  const { autoReload: isInDevelopmentMode, dependencies, useYarn, strapiVersion } = useAppInfos();
   const isOnline = useNavigatorOnLine();
 
   useFocusWhenNavigate();
@@ -72,15 +72,11 @@ const MarketPlacePage = () => {
     );
   };
 
-  const {
-    status: marketplacePluginsStatus,
-    data: marketplacePluginsResponse,
-  } = useFetchMarketplacePlugins(notifyMarketplaceLoad);
+  const { status: marketplacePluginsStatus, data: marketplacePluginsResponse } =
+    useFetchMarketplacePlugins(notifyMarketplaceLoad);
 
-  const {
-    status: marketplaceProvidersStatus,
-    data: marketplaceProvidersResponse,
-  } = useFetchMarketplaceProviders(notifyMarketplaceLoad);
+  const { status: marketplaceProvidersStatus, data: marketplaceProvidersResponse } =
+    useFetchMarketplaceProviders(notifyMarketplaceLoad);
 
   const isLoading = [marketplacePluginsStatus, marketplaceProvidersStatus].includes('loading');
 
@@ -172,7 +168,7 @@ const MarketPlacePage = () => {
     { target: searchQuery }
   );
 
-  const handleTabChange = selected => {
+  const handleTabChange = (selected) => {
     const packageType = selected === 0 ? 'plugin' : 'provider';
     setNpmPackageType(packageType);
   };
@@ -196,7 +192,7 @@ const MarketPlacePage = () => {
               name="searchbar"
               onClear={() => setSearchQuery('')}
               value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value)}
               clearLabel={formatMessage({
                 id: 'admin.pages.MarketPlacePage.search.clear',
                 defaultMessage: 'Clear the search',
@@ -251,6 +247,7 @@ const MarketPlacePage = () => {
                     useYarn={useYarn}
                     isInDevelopmentMode={isInDevelopmentMode}
                     npmPackageType="plugin"
+                    strapiAppVersion={strapiVersion}
                   />
                 )}
               </TabPanel>
