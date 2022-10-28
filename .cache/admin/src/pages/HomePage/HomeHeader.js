@@ -8,7 +8,6 @@ import { Stack } from '@strapi/design-system/Stack';
 import { Box } from '@strapi/design-system/Box';
 import { Button } from '@strapi/design-system/Button';
 import ArrowRight from '@strapi/icons/ArrowRight';
-import { useAppInfos } from '@strapi/helper-plugin';
 
 const WordWrap = styled(Typography)`
   word-break: break-word;
@@ -20,7 +19,6 @@ const StackCustom = styled(Stack)`
 
 const HomeHeader = ({ hasCreatedContentType, onCreateCT }) => {
   const { formatMessage } = useIntl();
-  const { userDisplayName } = useAppInfos();
 
   return (
     <div>
@@ -30,7 +28,7 @@ const HomeHeader = ({ hasCreatedContentType, onCreateCT }) => {
             {hasCreatedContentType
               ? formatMessage({
                   id: 'app.components.HomePage.welcome.again',
-                  defaultMessage: `Welcome ${userDisplayName}`,
+                  defaultMessage: 'Welcome 👋',
                 })
               : formatMessage({
                   id: 'app.components.HomePage.welcome',
@@ -50,7 +48,14 @@ const HomeHeader = ({ hasCreatedContentType, onCreateCT }) => {
                     'Congrats! You are logged as the first administrator. To discover the powerful features provided by Strapi, we recommend you to create your first Content type!',
                 })}
           </WordWrap>
-          {!hasCreatedContentType && (
+          {hasCreatedContentType ? (
+            <Link isExternal href="https://strapi.io/blog">
+              {formatMessage({
+                id: 'app.components.HomePage.button.blog',
+                defaultMessage: 'See more on the blog',
+              })}
+            </Link>
+          ) : (
             <Button size="L" onClick={onCreateCT} endIcon={<ArrowRight />}>
               {formatMessage({
                 id: 'app.components.HomePage.create',

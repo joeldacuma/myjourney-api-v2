@@ -43,8 +43,8 @@ const ApplicationInfosPage = () => {
     ? 'app.components.UpgradePlanModal.text-ce'
     : 'app.components.UpgradePlanModal.text-ee';
 
-  const submitMutation = useMutation(body => postProjectSettings(body), {
-    onSuccess: async ({ menuLogo }) => {
+  const submitMutation = useMutation((body) => postProjectSettings(body), {
+    async onSuccess({ menuLogo }) {
       await queryClient.invalidateQueries('project-settings', { refetchActive: true });
       updateProjectSettings({ menuLogo: menuLogo?.url });
     },
@@ -55,14 +55,14 @@ const ApplicationInfosPage = () => {
     const formData = getFormData(inputValues);
 
     submitMutation.mutate(formData, {
-      onSuccess: () => {
+      onSuccess() {
         const { menuLogo } = inputValues;
 
         if (menuLogo.rawFile) {
           trackUsage('didChangeLogo');
         }
       },
-      onError: () => {
+      onError() {
         toggleNotification({
           type: 'warning',
           message: { id: 'notification.error', defaultMessage: 'An error occurred' },
@@ -115,6 +115,20 @@ const ApplicationInfosPage = () => {
                       })}
                     </Typography>
                     <Typography as="p">v{strapiVersion}</Typography>
+                    <Link
+                      href={
+                        appInfos.communityEdition
+                          ? 'https://discord.strapi.io'
+                          : 'https://support.strapi.io/support/home'
+                      }
+                      isExternal
+                      endIcon={<ExternalLink />}
+                    >
+                      {formatMessage({
+                        id: 'Settings.application.get-help',
+                        defaultMessage: 'Get help',
+                      })}
+                    </Link>
                   </GridItem>
                   <GridItem col={6} s={12}>
                     <Typography variant="sigma" textColor="neutral600">
@@ -148,6 +162,18 @@ const ApplicationInfosPage = () => {
                         })}
                       </Link>
                     )}
+                  </GridItem>
+                  <GridItem col={6} s={12}>
+                    <Link
+                      href="https://strapi.io/pricing-self-hosted"
+                      isExternal
+                      endIcon={<ExternalLink />}
+                    >
+                      {formatMessage({
+                        id: 'Settings.application.link-pricing',
+                        defaultMessage: 'See all pricing plans',
+                      })}
+                    </Link>
                   </GridItem>
                 </Grid>
 
