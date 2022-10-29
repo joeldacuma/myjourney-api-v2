@@ -12,10 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "payments": {
+    "Giving": {
       "type": "component",
       "repeatable": true,
-      "component": "payments.giving"
+      "component": "payments.giving-method"
     }
   }
 }
