@@ -1,7 +1,7 @@
 {
   "collectionName": "components_payments_givings",
   "info": {
-    "displayName": "Giving",
+    "displayName": "Options",
     "icon": "won-sign",
     "description": ""
   },
@@ -25,11 +25,12 @@
       ]
     },
     "QR": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }
