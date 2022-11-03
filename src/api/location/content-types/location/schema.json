@@ -26,11 +26,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
-    },
-    "location": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::location.location"
     }
   }
 }
