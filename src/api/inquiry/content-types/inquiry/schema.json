@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inquiries",
+  "info": {
+    "singularName": "inquiry",
+    "pluralName": "inquiries",
+    "displayName": "Inquiries"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "name": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "isConfirmed": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
