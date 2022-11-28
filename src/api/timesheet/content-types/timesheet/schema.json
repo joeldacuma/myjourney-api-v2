@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "timesheets",
+  "info": {
+    "singularName": "timesheet",
+    "pluralName": "timesheets",
+    "displayName": "Timesheet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "entry": {
+      "type": "component",
+      "repeatable": true,
+      "component": "timesheet.time-entry"
+    }
+  }
+}
