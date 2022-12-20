@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "assemblies",
+  "info": {
+    "singularName": "assembly",
+    "pluralName": "assemblies",
+    "displayName": "Assembly",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "uid": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

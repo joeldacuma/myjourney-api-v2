@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "positions",
+  "info": {
+    "singularName": "position",
+    "pluralName": "positions",
+    "displayName": "Positions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "uid": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
