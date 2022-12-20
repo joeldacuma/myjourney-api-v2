@@ -82,6 +82,22 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::assembly.assembly"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "middleName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "birthdate": {
+      "type": "date"
+    },
+    "userId": {
+      "type": "string",
+      "required": true
     }
   }
 }
