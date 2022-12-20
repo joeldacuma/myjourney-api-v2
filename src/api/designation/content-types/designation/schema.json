@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "designations",
+  "info": {
+    "singularName": "designation",
+    "pluralName": "designations",
+    "displayName": "Designation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "uid": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

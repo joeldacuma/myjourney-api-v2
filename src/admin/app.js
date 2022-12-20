@@ -1,4 +1,4 @@
-const logo = "https://storage.googleapis.com/my-journey-v2.appspot.com/journey_blue_6bbeca7e85/journey_blue_6bbeca7e85.png";
+const logo = "https://storage.googleapis.com/my-journey-v2.appspot.com/My_Journey_V2_white_f28f36fef2/My_Journey_V2_white_f28f36fef2.jpg";
 
 export default {
   config: {

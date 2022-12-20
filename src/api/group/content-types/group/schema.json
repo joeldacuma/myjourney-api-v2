@@ -24,6 +24,15 @@
       "type": "component",
       "repeatable": true,
       "component": "collection.members"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
     }
   }
 }

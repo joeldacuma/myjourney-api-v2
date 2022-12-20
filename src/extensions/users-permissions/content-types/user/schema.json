@@ -67,6 +67,21 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::organisation.organisation"
+    },
+    "position": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::position.position"
+    },
+    "designation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::designation.designation"
+    },
+    "assembly": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::assembly.assembly"
     }
   }
 }
