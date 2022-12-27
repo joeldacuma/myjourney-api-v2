@@ -18,7 +18,8 @@
       "target": "plugin::users-permissions.user"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Members": {
       "type": "component",
