@@ -74,6 +74,6 @@ export default {
     notifications: { release: false }
   },
   bootstrap() {
-    document.title = "Journey App";
+    document.title = "My Journey App";
   },
 };
