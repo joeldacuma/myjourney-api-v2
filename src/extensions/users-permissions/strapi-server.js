@@ -38,7 +38,7 @@ module.exports = plugin => {
           return ctx.unauthorized();
         }
 
-        if (!ctx.state.user.id !== id) {
+        if (ctx.state.user.id !== id) {
           return ctx.unauthorized();
         }
         
