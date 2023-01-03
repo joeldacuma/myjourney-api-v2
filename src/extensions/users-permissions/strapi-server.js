@@ -20,6 +20,7 @@ module.exports = plugin => {
             'position',
             'designation',
             'assembly',
+            'location',
             'certification',
             'profileImage'
           ] 
@@ -28,6 +29,39 @@ module.exports = plugin => {
     
       ctx.body = sanitizeOutput(user);
     };
+
+    plugin.controllers.user.update = async (ctx) => {
+        const { body } = ctx.request;
+        const { id } = ctx.params;
+
+        if (!ctx.state.user) {
+          return ctx.unauthorized();
+        }
+
+        if (!ctx.state.user.id !== id) {
+          return ctx.unauthorized();
+        }
+        
+        const user = await strapi.entityService.update(
+          'plugin::users-permissions.user',
+          ctx.state.user.id,
+          { 
+            data: body,
+            populate: [
+                'designation',
+                'organisation',
+                'position',
+                'designation',
+                'assembly',
+                'location',
+                'certification',
+                'profileImage'
+              ]
+          }
+        );
+      
+        ctx.body = sanitizeOutput(user);
+      };
   
     // plugin.controllers.user.find = async (ctx) => {
     //     if (!ctx.state.user) {
