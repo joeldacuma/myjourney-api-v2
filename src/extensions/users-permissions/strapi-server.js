@@ -38,7 +38,9 @@ module.exports = plugin => {
           return ctx.unauthorized();
         }
 
-        console.log(ctx.state.user.id)
+        if (parseInt(ctx.state.user.id) !== parseInt(id)) {
+          return ctx.unauthorized();
+        }
         
         const user = await strapi.entityService.update(
           'plugin::users-permissions.user',
