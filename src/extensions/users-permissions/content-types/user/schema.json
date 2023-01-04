@@ -122,7 +122,8 @@
       "target": "api::location.location"
     },
     "biography": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 500
     }
   }
 }
