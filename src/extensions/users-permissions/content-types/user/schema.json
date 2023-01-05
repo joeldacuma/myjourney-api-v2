@@ -124,6 +124,9 @@
     "biography": {
       "type": "text",
       "maxLength": 500
+    },
+    "contactNumber": {
+      "type": "biginteger"
     }
   }
 }
