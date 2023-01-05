@@ -61,7 +61,26 @@ module.exports = plugin => {
         );
       
         ctx.body = sanitizeOutput(user);
-      };
+    };
+
+    plugin.controllers.user.destroy = async (ctx) => {
+      const { id } = ctx.params;
+
+      if (!ctx.state.user) {
+        return ctx.unauthorized();
+      }
+      
+      if (parseInt(ctx.state.user.id) !== parseInt(id)) {
+        return ctx.unauthorized();
+      }
+
+      const user = await strapi.entityService.delete(
+        'plugin::users-permissions.user',
+        ctx.state.user.id
+      );
+    
+      ctx.body = sanitizeOutput(user);
+    };
   
     // plugin.controllers.user.find = async (ctx) => {
     //     if (!ctx.state.user) {
