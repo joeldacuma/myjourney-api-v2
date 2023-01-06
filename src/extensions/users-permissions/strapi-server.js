@@ -22,7 +22,8 @@ module.exports = plugin => {
             'assembly',
             'location',
             'certification',
-            'profileImage'
+            'profileImage',
+            'country'
           ] 
         }
       );
@@ -55,7 +56,8 @@ module.exports = plugin => {
                 'assembly',
                 'location',
                 'certification',
-                'profileImage'
+                'profileImage',
+                'country'
               ]
           }
         );
