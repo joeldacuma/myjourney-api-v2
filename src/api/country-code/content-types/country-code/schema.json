@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "country_codes",
+  "info": {
+    "singularName": "country-code",
+    "pluralName": "country-codes",
+    "displayName": "Country Codes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "country": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string",
+      "maxLength": 4
+    },
+    "uid": {
+      "type": "uid",
+      "targetField": "country"
+    }
+  }
+}
