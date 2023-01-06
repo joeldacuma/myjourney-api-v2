@@ -127,6 +127,11 @@
     },
     "contactNumber": {
       "type": "biginteger"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::country-code.country-code"
     }
   }
 }
