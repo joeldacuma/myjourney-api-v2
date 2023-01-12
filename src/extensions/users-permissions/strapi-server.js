@@ -84,39 +84,61 @@ module.exports = plugin => {
       ctx.body = sanitizeOutput(user);
     };
   
-    // plugin.controllers.user.find = async (ctx) => {
-    //     if (!ctx.state.user) {
-    //         return ctx.unauthorized();
-    //       }
+    plugin.controllers.user.find = async (ctx) => {
+        if (!ctx.state.user) {
+            return ctx.unauthorized();
+          }
 
-    //   const users = await strapi.entityService.findMany(
-    //     'plugin::users-permissions.user',
-    //     { ...ctx.params, populate: ['profileImage'] }
-    //   );
+      const users = await strapi.entityService.findMany(
+        'plugin::users-permissions.user',
+        { ...ctx.params, 
+          populate: [
+            'designation',
+            'organisation',
+            'position',
+            'designation',
+            'assembly',
+            'location',
+            'certification',
+            'profileImage',
+            'country'
+          ] 
+        }
+      );
   
-    //   ctx.body = users.map(user => sanitizeOutput(user));
-    // };
+      ctx.body = users.map(user => sanitizeOutput(user));
+    };
 
-    // plugin.controllers.user.findOne = async (ctx) => {
+    plugin.controllers.user.findOne = async (ctx) => {
 
-    //     const { id } = ctx.params;
-    //     ctx.body = {};
+        const { id } = ctx.params;
+        ctx.body = {};
 
-    //     if (!ctx.state.user) {
-    //       return ctx.unauthorized();
-    //     }
+        if (!ctx.state.user) {
+          return ctx.unauthorized();
+        }
 
-    //     const user = await strapi.entityService.findOne(
-    //       'plugin::users-permissions.user',
-    //       id,
-    //       { populate: ['profileImage'] }
-    //     );
+        const user = await strapi.entityService.findOne(
+          'plugin::users-permissions.user',
+          id,
+          { populate: [
+            'designation',
+            'organisation',
+            'position',
+            'designation',
+            'assembly',
+            'location',
+            'certification',
+            'profileImage',
+            'country'
+          ] }
+        );
         
 
-    //     if (user) {
-    //       ctx.body = sanitizeOutput(user);
-    //     }
-    //   };
+        if (user) {
+          ctx.body = sanitizeOutput(user);
+        }
+      };
   
     return plugin;
   };
