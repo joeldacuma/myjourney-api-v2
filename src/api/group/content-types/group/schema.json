@@ -23,7 +23,7 @@
     },
     "Members": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "collection.members"
     },
     "active": {
