@@ -17,8 +17,5 @@ module.exports = createCoreController('api::group.group', ({ strapi }) => ({
 
     const response = await super.update(ctx);
     return response;
-  },
-  async create(ctx) {
-    
   }
 }));
