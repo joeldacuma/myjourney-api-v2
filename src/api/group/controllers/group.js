@@ -1,9 +1,5 @@
 'use strict';
 
-/**
- * group controller
- */
-
 const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::group.group', ({ strapi }) => ({
@@ -21,5 +17,8 @@ module.exports = createCoreController('api::group.group', ({ strapi }) => ({
 
     const response = await super.update(ctx);
     return response;
+  },
+  async create(ctx) {
+    
   }
 }));
