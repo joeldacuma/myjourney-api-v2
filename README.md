@@ -1,3 +1,3 @@
-# Strapi application
+# My Journey Platform 
 
-A quick description of your strapi application
+A quick description of your My Journey application
