@@ -1,21 +1,24 @@
 import React, { useRef, useState } from 'react';
+
+import { Box, Button, ContentLayout, Flex, HeaderLayout, Main } from '@strapi/design-system';
 import {
-  request,
+  Link,
+  LoadingIndicatorPage,
+  SettingsPageTitle,
+  useFetchClient,
   useNotification,
   useOverlayBlocker,
   useTracking,
-  LoadingIndicatorPage,
-  SettingsPageTitle,
-  Link,
 } from '@strapi/helper-plugin';
-import { Box, Button, ContentLayout, HeaderLayout, Main, Flex } from '@strapi/design-system';
-import { Formik } from 'formik';
 import { ArrowLeft } from '@strapi/icons';
+import { Formik } from 'formik';
 import get from 'lodash/get';
 import { useIntl } from 'react-intl';
 import { useRouteMatch } from 'react-router-dom';
-import { Permissions, RoleForm } from './components';
+
 import { useFetchPermissionsLayout, useFetchRole } from '../../../../../hooks';
+
+import { Permissions, RoleForm } from './components';
 import schema from './utils/schema';
 
 const EditPage = () => {
@@ -37,6 +40,8 @@ const EditPage = () => {
     onSubmitSucceeded,
   } = useFetchRole(id);
 
+  const { put } = useFetchClient();
+
   const handleEditRoleSubmit = async (data) => {
     try {
       lockApp();
@@ -44,17 +49,11 @@ const EditPage = () => {
 
       const { permissionsToSend, didUpdateConditions } = permissionsRef.current.getPermissions();
 
-      await request(`/admin/roles/${id}`, {
-        method: 'PUT',
-        body: data,
-      });
+      await put(`/admin/roles/${id}`, data);
 
       if (role.code !== 'strapi-super-admin') {
-        await request(`/admin/roles/${id}/permissions`, {
-          method: 'PUT',
-          body: {
-            permissions: permissionsToSend,
-          },
+        await put(`/admin/roles/${id}/permissions`, {
+          permissions: permissionsToSend,
         });
 
         if (didUpdateConditions) {

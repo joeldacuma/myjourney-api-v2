@@ -4,12 +4,13 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
-import { useIntl } from 'react-intl';
-import { useAppInfos } from '@strapi/helper-plugin';
-import { Typography, Box, Flex, Grid, GridItem } from '@strapi/design-system';
+
+import { Box, Flex, Grid, GridItem, Typography } from '@strapi/design-system';
 import { Link, LinkButton } from '@strapi/design-system/v2';
-import { ExternalLink, Github, Discord, Reddit, Strapi, Twitter, Discourse } from '@strapi/icons';
+import { useAppInfo } from '@strapi/helper-plugin';
+import { Discord, Discourse, ExternalLink, Github, Reddit, Strapi, Twitter } from '@strapi/icons';
+import { useIntl } from 'react-intl';
+import styled from 'styled-components';
 
 const StyledDiscord = styled(Discord)`
   path {
@@ -131,7 +132,7 @@ const GridGap = styled(Grid)`
 
 const SocialLinks = () => {
   const { formatMessage } = useIntl();
-  const { communityEdition } = useAppInfos();
+  const { communityEdition } = useAppInfo();
 
   const socialLinksExtended = [
     ...socialLinks,
@@ -187,7 +188,7 @@ const SocialLinks = () => {
       <GridGap>
         {socialLinksExtended.map(({ icon, link, name }) => {
           return (
-            <GridItem col={6} s={12} key={name}>
+            <GridItem col={6} s={12} key={name.id}>
               <LinkCustom size="L" startIcon={icon} variant="tertiary" href={link} isExternal>
                 {formatMessage(name)}
               </LinkCustom>

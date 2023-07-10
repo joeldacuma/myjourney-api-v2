@@ -1,52 +1,75 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react';
+
 import {
-  ConfirmDialog,
-  LoadingIndicatorPage,
-  SearchURLQuery,
-  SettingsPageTitle,
-  getFetchClient,
-  useNotification,
-  useQueryParams,
-  useRBAC,
-  useFocusWhenNavigate,
-} from '@strapi/helper-plugin';
-import { Plus, Trash, Duplicate, Pencil } from '@strapi/icons';
-import {
-  Button,
   ActionLayout,
+  Button,
   ContentLayout,
   HeaderLayout,
   Main,
   Table,
   Tbody,
   TFooter,
-  Thead,
   Th,
+  Thead,
   Tr,
   Typography,
   VisuallyHidden,
 } from '@strapi/design-system';
+import {
+  ConfirmDialog,
+  getFetchClient,
+  LoadingIndicatorPage,
+  SearchURLQuery,
+  SettingsPageTitle,
+  useCollator,
+  useFilter,
+  useFocusWhenNavigate,
+  useNotification,
+  useQueryParams,
+  useRBAC,
+} from '@strapi/helper-plugin';
+import { Duplicate, Pencil, Plus, Trash } from '@strapi/icons';
 import get from 'lodash/get';
-import matchSorter from 'match-sorter';
 import { useIntl } from 'react-intl';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
 import { useRolesList } from '../../../../../hooks';
-import adminPermissions from '../../../../../permissions';
+import { selectAdminPermissions } from '../../../../App/selectors';
+
 import EmptyRole from './components/EmptyRole';
 import BaseRoleRow from './components/RoleRow';
 import reducer, { initialState } from './reducer';
 
 const useSortedRoles = () => {
   useFocusWhenNavigate();
+  const { locale } = useIntl();
+  const permissions = useSelector(selectAdminPermissions);
   const {
     isLoading: isLoadingForPermissions,
     allowedActions: { canCreate, canDelete, canRead, canUpdate },
-  } = useRBAC(adminPermissions.settings.roles);
+  } = useRBAC(permissions.settings.roles);
 
   const { getData, roles, isLoading } = useRolesList(false);
   const [{ query }] = useQueryParams();
   const _q = query?._q || '';
-  const sortedRoles = matchSorter(roles, _q, { keys: ['name', 'description'] });
+
+  const { includes } = useFilter(locale, {
+    sensitivity: 'base',
+  });
+
+  /**
+   * @type {Intl.Collator}
+   */
+  const formatter = useCollator(locale, {
+    sensitivity: 'base',
+  });
+
+  const sortedRoles = (roles || [])
+    .filter((role) => includes(role.name, _q) || includes(role.description, _q))
+    .sort(
+      (a, b) => formatter.compare(a.name, b.name) || formatter.compare(a.description, b.description)
+    );
 
   useEffect(() => {
     if (!isLoadingForPermissions && canRead) {
@@ -356,6 +379,7 @@ const RoleListPage = () => {
                   usersCount={role.usersCount}
                   icons={getIcons(role)}
                   rowIndex={index + 2}
+                  canUpdate={canUpdate}
                 />
               ))}
             </Tbody>

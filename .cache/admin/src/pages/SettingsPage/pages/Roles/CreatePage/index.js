@@ -1,39 +1,43 @@
 import React, { useRef, useState } from 'react';
-import { format } from 'date-fns';
-import {
-  CheckPagePermissions,
-  Form,
-  LoadingIndicatorPage,
-  SettingsPageTitle,
-  request,
-  useNotification,
-  useOverlayBlocker,
-  useTracking,
-  Link,
-} from '@strapi/helper-plugin';
+
 import {
   Box,
   Button,
   ContentLayout,
-  HeaderLayout,
+  Flex,
   Grid,
   GridItem,
+  HeaderLayout,
   Main,
-  Flex,
-  Typography,
-  TextInput,
   Textarea,
+  TextInput,
+  Typography,
 } from '@strapi/design-system';
+import {
+  CheckPagePermissions,
+  Form,
+  Link,
+  LoadingIndicatorPage,
+  SettingsPageTitle,
+  useFetchClient,
+  useNotification,
+  useOverlayBlocker,
+  useTracking,
+} from '@strapi/helper-plugin';
 import { ArrowLeft } from '@strapi/icons';
+import { format } from 'date-fns';
 import { Formik } from 'formik';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import { useIntl } from 'react-intl';
+import { useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
-import Permissions from '../EditPage/components/Permissions';
+
 import { useFetchPermissionsLayout, useFetchRole } from '../../../../../hooks';
-import adminPermissions from '../../../../../permissions';
+import { selectAdminPermissions } from '../../../../App/selectors';
+import Permissions from '../EditPage/components/Permissions';
+
 import schema from './utils/schema';
 
 const UsersRoleNumber = styled.div`
@@ -58,6 +62,7 @@ const CreatePage = () => {
   const id = get(params, 'params.id', null);
   const { isLoading: isLayoutLoading, data: permissionsLayout } = useFetchPermissionsLayout();
   const { permissions: rolePermissions, isLoading: isRoleLoading } = useFetchRole(id);
+  const { post, put } = useFetchClient();
 
   const handleCreateRoleSubmit = (data) => {
     lockApp();
@@ -69,13 +74,8 @@ const CreatePage = () => {
       trackUsage('willCreateNewRole');
     }
 
-    Promise.resolve(
-      request('/admin/roles', {
-        method: 'POST',
-        body: data,
-      })
-    )
-      .then(async (res) => {
+    Promise.resolve(post('/admin/roles', data))
+      .then(async ({ data: res }) => {
         const { permissionsToSend } = permissionsRef.current.getPermissions();
 
         if (id) {
@@ -85,10 +85,7 @@ const CreatePage = () => {
         }
 
         if (res.data.id && !isEmpty(permissionsToSend)) {
-          await request(`/admin/roles/${res.data.id}/permissions`, {
-            method: 'PUT',
-            body: { permissions: permissionsToSend },
-          });
+          await put(`/admin/roles/${res.data.id}/permissions`, { permissions: permissionsToSend });
         }
 
         return res;
@@ -225,7 +222,7 @@ const CreatePage = () => {
                               id: 'global.description',
                               defaultMessage: 'Description',
                             })}
-                            name="description"
+                            id="description"
                             error={errors.description && formatMessage({ id: errors.description })}
                             onChange={handleChange}
                           >
@@ -260,8 +257,10 @@ const CreatePage = () => {
 };
 
 export default function () {
+  const permissions = useSelector(selectAdminPermissions);
+
   return (
-    <CheckPagePermissions permissions={adminPermissions.settings.roles.create}>
+    <CheckPagePermissions permissions={permissions.settings.roles.create}>
       <CreatePage />
     </CheckPagePermissions>
   );
