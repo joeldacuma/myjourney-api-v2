@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meetups",
+  "info": {
+    "singularName": "meetup",
+    "pluralName": "meetups",
+    "displayName": "Meetups",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "startTime": {
+      "type": "time"
+    },
+    "endTime": {
+      "type": "time"
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "attendance": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.attendance"
+    },
+    "group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::group.group"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_content_attendances",
+  "info": {
+    "displayName": "Attendance",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "isLogged": {
+      "type": "boolean"
+    }
+  }
+}
