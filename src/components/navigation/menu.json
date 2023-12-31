@@ -7,18 +7,21 @@
   },
   "options": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "required": true
     },
     "url": {
       "type": "string",
-      "required": true
+      "required": false
     },
-    "active": {
+    "disabled": {
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "iconName": {
+      "type": "string"
     }
   }
 }

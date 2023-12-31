@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Menus",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "submenus": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.menu"
+    },
+    "title": {
+      "type": "string"
+    },
+    "iconName": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmyjourney_api_v_2=self.webpackChunkmyjourney_api_v_2||[]).push([[4693],{49349:e=>{e.exports={}}}]);

@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "my_journey_dashboards",
+  "info": {
+    "singularName": "my-journey-dashboard",
+    "pluralName": "my-journey-dashboards",
+    "displayName": "My Journey Navigation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true,
+    "privateAttributes": [
+      "createdAt",
+      "updatedAt",
+      "publishedAt"
+    ]
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Sidebar": {
+      "displayName": "Sidebar",
+      "type": "component",
+      "repeatable": true,
+      "component": "sidebar.sidebar"
+    }
+  }
+}
