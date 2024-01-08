@@ -10,7 +10,12 @@
   },
   "options": {
     "draftAndPublish": false,
-    "timestamps": true
+    "timestamps": true,
+    "privateAttributes": [
+      "createdAt",
+      "updatedAt",
+      "publishedAt"
+    ]
   },
   "attributes": {
     "username": {
