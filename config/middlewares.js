@@ -13,8 +13,7 @@ module.exports = [
           'frame-src': ["'self'", "editor.unlayer.com"],
           upgradeInsecureRequests: null,
         },
-      },
-      
+      },  
     },
   },
   'strapi::cors',
